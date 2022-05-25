@@ -1,82 +1,102 @@
-<?php defined('BASEPATH') OR exit('No direct script access allowed');?>
-<!-- Content Wrapper. Contains page content -->
-<!-- Content Header (Page header) -->
-<div class="content-wrapper">
-    <section class="content-header">
-        <h1>
-            Dashboard <small>Control panel</small>
-        </h1>
-        <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">Dashboard</li>
-        </ol>
-    </section>
-    <!-- Main content -->
-    <section class="content">
-        <!-- Small boxes (Stat box) -->
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="col-lg-3 col-xs-6">
-                    <div class="small-box bg-aqua">
-                        <div class="inner">
-                            <h3><?= $count_pengguna;?></h3>
+<!-- Begin Page Content -->
+<div class="container-fluid">
 
-                            <p>Anggota</p>
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+    </div>
+
+    <!-- Content Row -->
+    <div class="row">
+
+        <?php if($this->session->userdata('level') == 'dokter'){?>
+        <!-- Earnings (Monthly) Card Example -->
+        <div class="col-xl-4 col-md-6 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="h5 text-lg font-weight-bold text-primary text-uppercase mb-1">
+                                1</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">Pasien</div>
                         </div>
-                        <div class="icon">
-                            <i class="fa fa-edit"></i>
+                        <div class="col-auto">
+                            <i class="fas fa-user fa-2x text-gray-300"></i>
                         </div>
-                        <a href="user" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
-
-                <div class="col-lg-3 col-xs-6">
-                    <!--small box-->
-                    <div class="small-box bg-blue">
-                        <div class="inner">
-                            <h3><?= $count_buku;?></h3>
-
-                            <p>Jenis Buku</p>
-                        </div>
-                        <div class="icon">
-                            <i class="fa fa-book"></i>
-                        </div>
-                        <a href="data" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-xs-6">
-                    <!-- small box -->
-                    <div class="small-box bg-green">
-                        <div class="inner">
-                            <h3><?= $count_pinjam;?></h3>
-
-                            <p>Pinjam</p>
-                        </div>
-                        <div class="icon">
-                            <i class="fa fa-user-plus"></i>
-                        </div>
-                        <a href="transaksi" class="small-box-footer">More info <i
-                                class="fa fa-arrow-circle-right"></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-xs-6">
-                    <div class="small-box bg-red">
-                        <div class="inner">
-                            <h3><?= $count_kembali;?></h3>
-
-                            <p>Di Kembalikan</p>
-                        </div>
-                        <div class="icon">
-                            <i class="fa fa-list"></i>
-                        </div>
-                        <a href="transaksi/kembali" class="small-box-footer">More info <i
-                                class="fa fa-arrow-circle-right"></i></a>
-                    </div>
-                </div>
-
             </div>
         </div>
-    </section>
+
+        <!-- Earnings (Monthly) Card Example -->
+        <div class="col-xl-4 col-md-6 mb-4">
+            <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-lg font-weight-bold text-success text-uppercase mb-1">
+                                1</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">Transaksi</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-table fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Earnings (Monthly) Card Example -->
+        <div class="col-xl-4 col-md-6 mb-4">
+            <div class="card border-left-info shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-lg font-weight-bold text-success text-uppercase mb-1">
+                                1</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">Obat</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-plus-square fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php }?>
+
+        <?php if($this->session->userdata('level') == 'admin'){?>
+        <div class="col-xl-6 col-lg-6">
+            <!-- Area Chart -->
+            <div class="card shadow mb-6">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Grafik Obat</h6>
+                </div>
+                <div class="card-body">
+                    <div class="chart-area">
+                        <canvas id="myAreaChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-6 col-lg-6">
+            <!-- Bar Chart -->
+            <div class="card shadow mb-6">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Grafik Pasien</h6>
+                </div>
+                <div class="card-body">
+                    <div class="chart-bar">
+                        <canvas id="myBarChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php }?>
+
+    </div>
+    <!-- /.Content Row -->
+
 </div>
-<!-- /.content -->
+<!-- /.container-fluid -->

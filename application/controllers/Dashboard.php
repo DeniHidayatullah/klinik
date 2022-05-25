@@ -16,15 +16,13 @@ class Dashboard extends CI_Controller {
 	public function index()
 	{	
 		$this->data['idbo'] = $this->session->userdata('ses_id');
+		$this->data['username'] = $this->session->userdata('username');
 		$this->data['title_web'] = 'Dashboard ';
-		$this->data['count_pengguna']=$this->db->query("SELECT * FROM tbl_login")->num_rows();
-		$this->data['count_buku']=$this->db->query("SELECT * FROM tbl_buku")->num_rows();
-		$this->data['count_pinjam']=$this->db->query("SELECT * FROM tbl_pinjam WHERE status = 'Dipinjam'")->num_rows();
-		$this->data['count_kembali']=$this->db->query("SELECT * FROM tbl_pinjam WHERE status = 'Di Kembalikan'")->num_rows();
-		$this->load->view('template/header_view',$this->data);
-		$this->load->view('template/sidebar_view',$this->data);
+		$this->load->view('template_admin/header_view',$this->data);
+		$this->load->view('template_admin/sidebar_view',$this->data);
+		$this->load->view('template_admin/topbar_view',$this->data);
 		$this->load->view('dashboard_view',$this->data);
-		$this->load->view('template/footer_view',$this->data);
+		$this->load->view('template_admin/footer_view',$this->data);
 	}
 
 }
