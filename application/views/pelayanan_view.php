@@ -14,7 +14,7 @@
                     class="card-img-top" alt="...">
 
                 <div class="card-body">
-                    <h4>(KIA)<br>Kesehatan Ibu & Anak</h4>
+                    <h5>(KIA)<br>Kesehatan Ibu & Anak</h5>
                 </div>
 
                 <div class="card-footer">
@@ -30,7 +30,7 @@
                     class="card-img-top" alt="...">
 
                 <div class="card-body">
-                    <h4>Pelayanan Lansia</h4>
+                    <h5>Pemeriksaan Kesehatan Umum</h5>
                 </div>
 
                 <div class="card-footer">
@@ -40,13 +40,13 @@
             </div>
         </div>
 
-        <div class="col-md-4 col-sm-6 mb-3">
+        <div class="col-md-4 col-sm-12 mb-3">
             <div class="card">
-                <img src="<?php echo base_url('assets/img/dewasa.png');?>" width="100px" height="150px"
+                <img src="<?php echo base_url('assets/img/imunisasi.png');?>" width="100px" height="150px"
                     class="card-img-top" alt="...">
 
                 <div class="card-body">
-                    <h4>Pelayanan Dewasa</h4>
+                    <h5>Imunisasi</h5>
                 </div>
 
                 <div class="card-footer">
@@ -58,13 +58,14 @@
 
     </div>
     <div class="row">
-        <div class="col-md-4 col-sm-12 mb-3">
+
+        <div class="col-md-4 col-sm-6 mb-3">
             <div class="card">
-                <img src="<?php echo base_url('assets/img/imunisasi.png');?>" width="100px" height="150px"
+                <img src="<?php echo base_url('assets/img/dewasa.png');?>" width="100px" height="150px"
                     class="card-img-top" alt="...">
 
                 <div class="card-body">
-                    <h4>Imunisasi</h4>
+                    <h5>Pelayanan KB (Keluarga Berencana)</h5>
                 </div>
 
                 <div class="card-footer">
@@ -80,7 +81,7 @@
                     class="card-img-top" alt="...">
 
                 <div class="card-body">
-                    <h4>Periksa Umum</h4>
+                    <h5>Pelayanan Kesehatan </h5>
                 </div>
 
                 <div class="card-footer">
@@ -96,7 +97,7 @@
                     class="card-img-top" alt="...">
 
                 <div class="card-body">
-                    <h4>Lainnya</h4>
+                    <h5>Lainnya</h5>
                 </div>
 
                 <div class="card-footer">
