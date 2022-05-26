@@ -44,7 +44,7 @@ class Login extends CI_Controller {
         }else{
 
             echo '<script>alert("Login Gagal, Periksa Kembali Username dan Password Anda");
-            window.location="'.base_url().'"</script>';
+            window.location="'.base_url().'login"</script>';
         }
     }
 

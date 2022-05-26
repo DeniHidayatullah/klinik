@@ -31,9 +31,24 @@
                 <li class="nav-item <?php if($this->uri->uri_string() == 'home/pelayanan'){ echo 'active';}?>">
                     <a class="nav-link" href="<?php echo base_url('home/pelayanan');?>">Pelayanan</a>
                 </li>
+                <?php if($this->session->userdata('level') != 'pasien'){?>
                 <li class="nav-item <?php if($this->uri->uri_string() == 'login'){ echo 'active';}?>">
                     <a class="nav-link" href="<?php echo base_url('login');?>">Login</a>
                 </li>
+                <?php } ?>
+                <?php if($this->session->userdata('level') == 'pasien'){?>
+                <li class="nav-item <?php if($this->uri->uri_string() == 'pasien'){ echo 'active';}?>">
+                    <a class="nav-link" href="<?php echo base_url('pasien');?>">Daftar Pasien</a>
+                </li>
+                <li
+                    class="nav-item <?php if($this->uri->uri_string() == 'pasien/riwayatpemeriksaan'){ echo 'active';}?>">
+                    <a class="nav-link" href="<?php echo base_url('pasien/riwayatpemeriksaan');?>">Riwayat
+                        Pemeriksaan</a>
+                </li>
+                <li class="nav-item <?php if($this->uri->uri_string() == 'login/logout'){ echo 'active';}?>">
+                    <a class="nav-link" href="<?php echo base_url('login/logout');?>">Logout</a>
+                </li>
+                <?php } ?>
             </ul>
         </div>
     </ul>

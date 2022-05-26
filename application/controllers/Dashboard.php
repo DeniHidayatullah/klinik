@@ -6,7 +6,7 @@ class Dashboard extends CI_Controller {
 	 parent::__construct();
 	 	//validasi jika user belum login
      $this->data['CI'] =& get_instance();
-     $this->load->model('M_Admin');
+     $this->load->model('M_User');
 	 	 if($this->session->userdata('masuk_sistem_rekam') != TRUE){
 				 $url=base_url('login');
 				 redirect($url);
