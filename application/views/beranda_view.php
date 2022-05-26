@@ -16,20 +16,16 @@
         </div>
         <div class="card-body">
             <div class="text-center">
-                <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem" src="img/undraw_posting_photo.svg"
-                    alt="..." />
+                <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 35rem"
+                    src="<?php echo base_url('assets/img/klinik.jpg');?>" alt="..." />
             </div>
             <p>
-                Add some quality, svg illustrations to your project courtesy
-                of
-                <a target="_blank" rel="nofollow" href="https://undraw.co/">unDraw</a>, a constantly updated collection
-                of beautiful svg images
-                that you can use completely free and without attribution!
-            </p>
-            <a target="_blank" rel="nofollow" href="https://undraw.co/">Browse Illustrations on unDraw &rarr;</a>
-            <br />
-            <br />
-            <br />
+                Klinik Ketapanrame adalah suatu fasilitas kesehatan publik kecil yang didirikan untuk memberikan
+                perawatan kepada
+                pasien luar. Biasanya klinik hanya mengobati penyakit-penyakit ringan seperti demam dan sebagainya,
+                sedangkan kasus-kasus yang lebih parah diajukan ke rumah sakit.
+                <br />
+                <br />
         </div>
     </div>
 </div>
