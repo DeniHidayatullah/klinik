@@ -17,6 +17,19 @@ class M_Pasien extends CI_Model
        $this->db->order_by($this->id_pasien, $this->order_pasien);
        return $this->db->get($this->table_pasien)->result();
    }
+   function get_pasien()
+   {
+    $where = "status_pasien=0 OR status_pasien=1";
+    $this->db->where($where);
+       $this->db->order_by($this->id_pasien, $this->order_pasien);
+       return $this->db->get($this->table_pasien)->result();
+   }
+   function get_riwayat_pasien()
+   {
+    $this->db->where('status_pasien', 2);
+       $this->db->order_by($this->id_pasien, $this->order_pasien);
+       return $this->db->get($this->table_pasien)->result();
+   }
    function get_by_id_pasien($id)
    {
        $this->db->where($this->id_pasien, $id);

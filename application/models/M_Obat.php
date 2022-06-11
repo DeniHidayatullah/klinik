@@ -19,7 +19,7 @@ class M_Obat extends CI_Model
     function get_by_id_obat($id)
     {
         $this->db->where($this->kode_obat, $id);
-        return $this->db->get($this->table_obat)->row();
+        return $this->db->get($this->table_obat)->result();
     }
 
     function insert_obat($data)

@@ -16,8 +16,8 @@
         </div>
         <div class="card-body">
             <div class="text-center">
-                <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 35rem"
-                    src="<?php echo base_url('assets/img/klinik.jpg');?>" alt="..." />
+                <img class="img-fluid px-3 px-sm-4 mt-1 mb-4" style="width: 50%"
+                    src="<?php echo base_url('assets/img/klinik2.jpg');?>" alt="..." />
             </div>
             <p>
                 Klinik Ketapanrame adalah suatu fasilitas kesehatan publik kecil yang didirikan untuk memberikan
