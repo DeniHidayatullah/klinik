@@ -44,7 +44,7 @@
                             <td><?php echo $data->total ?></td>
                             <td><?php echo $data->bayar ?></td>
                             <td><a target="_blank"
-                                    href="<?php echo base_url() ?>admin/LaporanTransaksi/cetaksruk/<?php echo  $data->id_pasien; ?>"
+                                    href="<?php echo base_url() ?>Transaksi/cetaksruk/<?php echo  $data->id_pasien; ?>"
                                     class="btn btn-sm btn-success">Cetak Struk</a></td>
                         </tr>
                         <?php

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class LaporanTransaksi extends CI_Controller {
+class Transaksi extends CI_Controller {
 	function __construct(){
 	 parent::__construct();
 	 	//validasi jika user belum login
@@ -19,19 +19,18 @@ class LaporanTransaksi extends CI_Controller {
 	{	
 		$id = $this->session->userdata('ses_id');
 		$this->data['username'] = $this->session->userdata('username');
-        $this->data['transaksi_pasien']   = $this->m_transaksi->get_transaksipasien();
+        $this->data['transaksi_pasien']   = $this->m_pasien->getdi_transaksipasien($id);
 		$this->data['title_web'] = 'Riwayat Transaksi Pasien';
 		$this->load->view('template_admin/header_view',$this->data);
 		$this->load->view('template_admin/sidebar_view',$this->data);
 		$this->load->view('template_admin/topbar_view',$this->data);
-		$this->load->view('admin/riwayattransaksi',$this->data);
+		$this->load->view('pasien/riwayattransaksi',$this->data);
 		$this->load->view('template_admin/footer_view',$this->data);
 	}
+
 	public function cetaksruk($id)
 	{	
         $this->data['transaksi_pasien']   = $this->m_transaksi->get_strukpasien($id);
-		// var_dump($this->data['transaksi_pasien']);
-		// die;
-		$this->load->view('dokter/struk',$this->data);
+		$this->load->view('pasien/struk',$this->data);
 	}
 }

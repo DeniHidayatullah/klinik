@@ -39,8 +39,14 @@
             <!-- Nav Item - riwayat pasien -->
             <li class="nav-item <?php if($this->uri->uri_string() == 'pasien/riwayatpemeriksaan'){ echo 'active';}?>">
                 <a class="nav-link" href="<?php echo base_url('pasien/riwayatpemeriksaan');?>">
-                    <i class="fas fa-fw fa-users"></i>
+                    <i class="fas fa-fw fa-calendar"></i>
                     <span>Riwayat Pemeriksaan</span></a>
+            </li>
+
+            <li class="nav-item <?php if($this->uri->uri_string() == 'transaksi'){ echo 'active';}?>">
+                <a class="nav-link" href="<?php echo base_url('transaksi');?>">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Riwayat Transaksi</span></a>
             </li>
 
             <?php }?>

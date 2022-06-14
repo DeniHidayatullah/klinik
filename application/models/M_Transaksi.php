@@ -28,6 +28,7 @@ class M_Transaksi extends CI_Model
     $this->db->order_by($this->id_transaksi, $this->order_pasien);
     return $this->db->get()->result();
    }
+
    function get_strukpasien($id)
    {
     $data = $this->db->select('*');
@@ -43,6 +44,17 @@ class M_Transaksi extends CI_Model
     $this->db->from('tbl_transaksi');
     return $this->db->get()->row();
    }
+
+   function get_bulantransaksi()
+   {
+    $query = $this->db->query("SELECT MONTH(tanggal_transaksi) AS bulan FROM tbl_transaksi ORDER BY MONTH(tanggal_transaksi) ASC")->result();
+        return $query;
+    }
+   function get_perbulantransaksi()
+   {
+    $query = $this->db->query("SELECT COUNT(id_transaksi) as totalperbulan FROM tbl_transaksi Group BY MONTH(tanggal_transaksi) ASC")->result();
+        return $query;
+    }
 
    function get_pasien()
    {

@@ -62,6 +62,17 @@ class M_Pasien extends CI_Model
     return $this->db->get()->row();
    }
    
+   function get_bulanpasien()
+   {
+    $query = $this->db->query("SELECT MONTH(tanggal_daftar) AS bulan FROM tbl_pasien Group BY MONTH(tanggal_daftar) ASC")->result();
+        return $query;
+    }
+   function get_perbulanpasien()
+   {
+    $query = $this->db->query("SELECT COUNT(id_pasien) as totalperbulan FROM tbl_pasien Group BY MONTH(tanggal_daftar) ASC")->result();
+        return $query;
+    }
+   
    function get_by_id_pasien($id)
    {
        $this->db->where($this->id_pasien, $id);
@@ -76,6 +87,16 @@ class M_Pasien extends CI_Model
     return $this->db->get()->result();
    }
 
+   function getdi_transaksipasien($id)
+   {
+    $data = $this->db->select('*');
+    $this->db->from('tbl_transaksi');
+    $this->db->join('tbl_pasien', 'tbl_pasien.id_pasien = tbl_transaksi.id_pasien', 'left');
+    $this->db->join('tbl_user', 'tbl_pasien.id_user = tbl_user.id_user', 'left');
+    $this->db->where('tbl_user.id_user', $id);
+    return $this->db->get()->result();
+   }
+   
    function insert_pasien($data)
    {
        $this->db->insert($this->table_pasien, $data);

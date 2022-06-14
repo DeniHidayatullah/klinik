@@ -24,6 +24,12 @@ class Dashboard extends CI_Controller {
 		$this->data['pasienbaru'] =  $this->m_pasien->get_pasienbaru();
 		$this->data['totaltransaksi'] =  $this->m_transaksi->get_totaltransaksi();
 		$this->data['totalpasien'] =  $this->m_pasien->get_totalpasien();
+		$this->data['bulanpasien'] =  $this->m_pasien->get_bulanpasien();
+		$this->data['perbulanpasien'] =  $this->m_pasien->get_perbulanpasien();
+		$this->data['bulantransaksi'] =  $this->m_transaksi->get_bulantransaksi();
+		$this->data['perbulantransaksi'] =  $this->m_transaksi->get_perbulantransaksi();
+		// var_dump($this->data['bulanpasien']);
+		// die;
 		$this->data['title_web'] = 'Dashboard ';
 		$this->load->view('template_admin/header_view',$this->data);
 		$this->load->view('template_admin/sidebar_view',$this->data);
