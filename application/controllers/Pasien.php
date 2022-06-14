@@ -17,22 +17,38 @@ class Pasien extends CI_Controller {
 	public function index()
 	{	
 		$this->data['idbo'] = $this->session->userdata('ses_id');
+		$this->data['username'] = $this->session->userdata('username');
 		$this->data['title_web'] = 'Daftar Pasien';
-		$this->load->view('template/header_view',$this->data);
-		$this->load->view('template/topbar_view',$this->data);
+		$this->load->view('template_admin/header_view',$this->data);
+		$this->load->view('template_admin/sidebar_view',$this->data);
+		$this->load->view('template_admin/topbar_view',$this->data);
 		$this->load->view('pasien/daftar_view',$this->data);
-		$this->load->view('template/footer_view',$this->data);
+		$this->load->view('template_admin/footer_view',$this->data);
 	}
 
 	public function prosesdaftar()
-	{		
+	{	
 		$id = $this->session->userdata('ses_id');
+		// setting konfigurasi upload
+		$nmfile = "user_".time();
+		$config['upload_path'] = './assets/SyaratPasien/';
+		$config['allowed_types'] = 'gif|jpg|jpeg|png';
+		$config['file_name'] = $nmfile;
+		// load library upload
+		$this->load->library('upload', $config);
+		// upload gambar 1
+		$this->upload->do_upload('syarat_daftar');
+		$result1 = $this->upload->data();
+		$result = array('syarat_daftar'=>$result1);
+		$data1 = array('upload_data' => $this->upload->data());
 			$data = array(
 				'nama_pasien'=> $this->input->post('nama_pasien'), 
+				'tempat'=> $this->input->post('tempat'), 
+				'tanggal_lahir'=> $this->input->post('tanggal_lahir'), 
 				'jenis_kelamin' => $this->input->post('jenis_kelamin'),
-				'usia_pasien'=> $this->input->post('usia_pasien'), 
-				'gejala_pasien' => $this->input->post('gejala_pasien'),
-				'no_telp'=> $this->input->post('no_telp'), 
+				'keluhan' => $this->input->post('keluhan'),
+				'no_telp'=> $this->input->post('no_telp'),
+                'syarat_daftar'=>$data1['upload_data']['file_name'], 
 				'id_user' => $id,
 				'status_pasien' => '0'
 			);
@@ -46,11 +62,13 @@ class Pasien extends CI_Controller {
 	public function riwayatpemeriksaan()
 	{	
 		$id = $this->session->userdata('ses_id');
+		$this->data['username'] = $this->session->userdata('username');
 		$this->data['data_pasien'] =  $this->m_pasien->get_by_id_user($id);
 		$this->data['title_web'] = 'Riwayat Pemeriksaan Pasien';
-		$this->load->view('template/header_view',$this->data);
-		$this->load->view('template/topbar_view',$this->data);
+		$this->load->view('template_admin/header_view',$this->data);
+		$this->load->view('template_admin/sidebar_view',$this->data);
+		$this->load->view('template_admin/topbar_view',$this->data);
 		$this->load->view('pasien/riwayatpemeriksaan_view',$this->data);
-		$this->load->view('template/footer_view',$this->data);
+		$this->load->view('template_admin/footer_view',$this->data);
 	}
 }

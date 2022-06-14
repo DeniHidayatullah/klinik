@@ -44,6 +44,11 @@
                                     <form action="<?= base_url('register/prosesregister');?>" method="POST">
                                         <div class="form-group">
                                             <input type="text" class="form-control form-control-user"
+                                                placeholder="Masukan Nama" id="nama" name="nama" required="required"
+                                                autocomplete="off">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control form-control-user"
                                                 placeholder="Masukan Username" id="username" name="username"
                                                 required="required" autocomplete="off">
                                         </div>
@@ -51,6 +56,11 @@
                                             <input type="password" class="form-control form-control-user"
                                                 placeholder="Masukan Password" id="password" name="password"
                                                 required="required" autocomplete="off">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="email" class="form-control form-control-user"
+                                                placeholder="Masukan Email" id="email" name="email" required="required"
+                                                autocomplete="off">
                                         </div>
                                         <button type="submit" id="loding" class="btn btn-success btn-user btn-block">
                                             Daftar

@@ -34,12 +34,13 @@ class Login extends CI_Controller {
             $this->session->set_userdata('level',$hasil_login['level']);
             $this->session->set_userdata('username',$hasil_login['username']);
 
-		if($this->session->userdata('level') == 'admin' || $this->session->userdata('level') == 'dokter'){
-            echo '<script>window.location="'.base_url().'dashboard";</script>';
-        }
-        elseif($this->session->userdata('level') == 'pasien'){
-            echo '<script>window.location="'.base_url().'home";</script>';
-        }
+		// if($this->session->userdata('level') == 'admin' || $this->session->userdata('level') == 'dokter'){
+        //     echo '<script>window.location="'.base_url().'dashboard";</script>';
+        // }
+        // elseif($this->session->userdata('level') == 'pasien'){
+        //     echo '<script>window.location="'.base_url().'home";</script>';
+        // }
+        echo '<script>window.location="'.base_url().'dashboard";</script>';
         
         }else{
 

@@ -21,6 +21,30 @@
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
+            <?php if($this->session->userdata('level') == 'pasien'){?>
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item <?php if($this->uri->uri_string() == 'dashboard'){ echo 'active';}?>">
+                <a class="nav-link" href="<?php echo base_url('dashboard');?>">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Dashboard</span></a>
+            </li>
+
+            <!-- Nav Item - pasien -->
+            <li class="nav-item <?php if($this->uri->uri_string() == 'pasien'){ echo 'active';}?>">
+                <a class="nav-link" href="<?php echo base_url('pasien');?>">
+                    <i class="fas fa-fw fa-user"></i>
+                    <span>Daftar Pasien</span></a>
+            </li>
+
+            <!-- Nav Item - riwayat pasien -->
+            <li class="nav-item <?php if($this->uri->uri_string() == 'pasien/riwayatpemeriksaan'){ echo 'active';}?>">
+                <a class="nav-link" href="<?php echo base_url('pasien/riwayatpemeriksaan');?>">
+                    <i class="fas fa-fw fa-users"></i>
+                    <span>Riwayat Pemeriksaan</span></a>
+            </li>
+
+            <?php }?>
+
             <?php if($this->session->userdata('level') == 'dokter'){?>
             <!-- Nav Item - Dashboard -->
             <li class="nav-item <?php if($this->uri->uri_string() == 'dashboard'){ echo 'active';}?>">
@@ -45,8 +69,14 @@
             <!-- Nav Item - transaksi -->
             <li class="nav-item <?php if($this->uri->uri_string() == 'dokter/transaksi'){ echo 'active';}?>">
                 <a class="nav-link" href="<?php echo base_url('dokter/transaksi');?>">
+                    <i class="fas fa-fw fa-cart-plus"></i>
+                    <span>Transaksi</span></a>
+            </li>
+            <li
+                class="nav-item <?php if($this->uri->uri_string() == 'dokter/transaksi/riwayattransaksi'){ echo 'active';}?>">
+                <a class="nav-link" href="<?php echo base_url('dokter/transaksi/riwayattransaksi');?>">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Transaksi Obat</span></a>
+                    <span>Riwayat Transaksi</span></a>
             </li>
             <?php }?>
 

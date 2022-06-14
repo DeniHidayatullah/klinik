@@ -15,6 +15,7 @@
 
             <!-- Topbar Navbar -->
             <ul class="navbar-nav ml-auto">
+                <?php if($this->session->userdata('level') == 'dokter'){?>
                 <!-- Nav Item - Alerts -->
                 <li class="nav-item dropdown no-arrow mx-1">
                     <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
@@ -43,6 +44,7 @@
                         <a class="dropdown-item text-center small text-gray-500" href="#">Tampilkan Semua</a>
                     </div>
                 </li>
+                <?php }?>
 
                 <div class="topbar-divider d-none d-sm-block"></div>
 

@@ -15,10 +15,11 @@
                         <tr>
                             <th>No.</th>
                             <th>Nama Pasien</th>
+                            <th>TTL</th>
                             <th>Jenis Kelamin</th>
-                            <th>Usia Pasien</th>
-                            <th>Gejala Pasien</th>
+                            <th>Keluhan</th>
                             <th>No.Telpon</th>
+                            <th>Syarat Pendaftaran</th>
                             <th>Status Pasien</th>
                             <th>Aksi</th>
                         </tr>
@@ -32,6 +33,8 @@
                         <tr>
                             <td><?php echo ++$start ?></td>
                             <td><?php echo $data->nama_pasien ?></td>
+                            <td><?php echo $data->tempat.', '. date('d-m-Y', strtotime($data->tanggal_lahir)) ?>
+                            </td>
                             <td><?php 
                                 if ($data->jenis_kelamin == 'L') {
                                     ?><b>Laki-Laki</b><?php
@@ -39,9 +42,10 @@
                                     ?><b>Perempuan</b><?php
                                 }
                                 ?></td>
-                            <td><?php echo $data->usia_pasien ?></td>
-                            <td><?php echo $data->gejala_pasien ?></td>
+                            <td><?php echo $data->keluhan ?></td>
                             <td><?php echo $data->no_telp ?></td>
+                            <td><img src="<?= base_url('assets/SyaratPasien/'.$data->syarat_daftar);?>"
+                                    class="img-responsive" width="100px" height="100px"></td>
                             <td><?php 
                                 if ($data->status_pasien == '0') {
                                     ?><span class="badge badge-danger">Belum Dikonfirmasi</span><?php

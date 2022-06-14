@@ -3,7 +3,7 @@
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Daftar Pasien</h1>
+        <h1 class="h3 mb-0 text-gray-800">Riwayat Transaksi</h1>
     </div>
 
     <!-- Illustrations -->
@@ -15,25 +15,22 @@
                         <tr>
                             <th>No.</th>
                             <th>Nama Pasien</th>
-                            <th>TTL</th>
                             <th>Jenis Kelamin</th>
                             <th>Keluhan</th>
                             <th>No.Telpon</th>
-                            <th>Syarat Pendaftaran</th>
-                            <th>Status Pasien</th>
+                            <th>Total</th>
+                            <th>Bayar</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
                         $start =0;
-                        foreach ($data_pasien as $data)
+                        foreach ($transaksi_pasien as $data)
                         {
                         ?>
                         <tr>
                             <td><?php echo ++$start ?></td>
                             <td><?php echo $data->nama_pasien ?></td>
-                            <td><?php echo $data->tempat.', '. date('d-m-Y', strtotime($data->tanggal_lahir)) ?>
-                            </td>
                             <td><?php 
                                 if ($data->jenis_kelamin == 'L') {
                                     ?><b>Laki-Laki</b><?php
@@ -43,13 +40,8 @@
                                 ?></td>
                             <td><?php echo $data->keluhan ?></td>
                             <td><?php echo $data->no_telp ?></td>
-                            <td><img src="<?= base_url('assets/SyaratPasien/'.$data->syarat_daftar);?>"
-                                    class="img-responsive" width="100px" height="100px"></td>
-                            <td><?php 
-                                if ($data->status_pasien == '2') {
-                                    ?><span class="badge badge-success">Selesai</span><?php
-                                }
-                                ?></td>
+                            <td><?php echo $data->total ?></td>
+                            <td><?php echo $data->bayar ?></td>
                         </tr>
                         <?php
                         }

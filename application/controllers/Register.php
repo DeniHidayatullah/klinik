@@ -23,8 +23,10 @@ class Register extends CI_Controller {
 	public function prosesregister()
 	{		
 			$data = array(
+				'nama'=> $this->input->post('nama'), 
 				'username'=> $this->input->post('username'), 
 				'password' => md5($this->input->post('password')),
+				'email'=> $this->input->post('email'), 
 				'level' => 'pasien'
 			);
 
