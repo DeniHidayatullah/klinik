@@ -98,11 +98,11 @@
             </li>
 
             <!-- Nav Item - obat -->
-            <li class="nav-item <?php if($this->uri->uri_string() == 'admin/dataobat'){ echo 'active';}?>">
+            <!-- <li class="nav-item <?php if($this->uri->uri_string() == 'admin/dataobat'){ echo 'active';}?>">
                 <a class="nav-link" href="<?php echo base_url('admin/dataobat');?>">
                     <i class="fas fa-fw fa-plus-square"></i>
                     <span> Data Obat</span></a>
-            </li>
+            </li> -->
 
             <!-- Nav Item - transaksi -->
             <li class="nav-item <?php if($this->uri->uri_string() == 'admin/laporantransaksi'){ echo 'active';}?>">

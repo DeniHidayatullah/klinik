@@ -19,6 +19,8 @@ class Pasien extends CI_Controller {
 		$this->data['idbo'] = $this->session->userdata('ses_id');
 		$this->data['username'] = $this->session->userdata('username');
 		$this->data['data_pasien'] =  $this->m_pasien->get_pasien();
+		$this->data['pemberitahuan'] =  $this->m_pasien->get_pemberitahuan();
+		$this->data['jumlah_pemberitahuan'] =  $this->m_pasien->get_jumlahpemberitahuan();
 		$this->data['title_web'] = 'Daftar Pasien';
 		$this->load->view('template_admin/header_view',$this->data);
 		$this->load->view('template_admin/sidebar_view',$this->data);

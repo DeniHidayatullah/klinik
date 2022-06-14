@@ -30,6 +30,38 @@ class M_Pasien extends CI_Model
        $this->db->order_by($this->id_pasien, $this->order_pasien);
        return $this->db->get($this->table_pasien)->result();
    }
+   
+   function get_pemberitahuan()
+   {
+    $data = $this->db->select('*');
+    $this->db->from('tbl_pasien');
+    $this->db->where('status_pasien', 0);
+    return $this->db->get()->result();
+   }
+   
+   function get_jumlahpemberitahuan()
+   {
+    $data = $this->db->select('count(id_pasien) as jumlahpasien');
+    $this->db->from('tbl_pasien');
+    $this->db->where('status_pasien', 0);
+    return $this->db->get()->row();
+   }
+   
+   function get_pasienbaru()
+   {
+    $data = $this->db->select('count(id_pasien) as jumlahpasienbaru');
+    $this->db->from('tbl_pasien');
+    $this->db->where('status_pasien', 0);
+    return $this->db->get()->row();
+   }
+   
+   function get_totalpasien()
+   {
+    $data = $this->db->select('count(id_pasien) as jumlahpasien');
+    $this->db->from('tbl_pasien');
+    return $this->db->get()->row();
+   }
+   
    function get_by_id_pasien($id)
    {
        $this->db->where($this->id_pasien, $id);

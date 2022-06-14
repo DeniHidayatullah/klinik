@@ -22,14 +22,18 @@
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-bell fa-fw"></i>
                         <!-- Counter - Alerts -->
-                        <span class="badge badge-danger badge-counter">1+</span>
+                        <span class="badge badge-danger badge-counter"><?= $jumlah_pemberitahuan->jumlahpasien?>+</span>
                     </a>
                     <!-- Dropdown - Alerts -->
                     <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
                         aria-labelledby="alertsDropdown">
                         <h6 class="dropdown-header">
-                            Pesan Masuk
+                            Pemberitahuan
                         </h6>
+                        <?php
+                        foreach ($pemberitahuan as $data)
+                        {
+                        ?>
                         <a class="dropdown-item d-flex align-items-center" href="#">
                             <div class="mr-3">
                                 <div class="icon-circle bg-primary">
@@ -37,11 +41,15 @@
                                 </div>
                             </div>
                             <div>
-                                <div class="small text-gray-500">25 Mei 2022</div>
-                                <span class="font-weight-bold">Ada 1 Pasian lagi</span>
+                                <div class="small text-gray-500"><?= $data->keluhan?></div>
+                                <span class="font-weight-bold"><?= $data->nama_pasien?></span>
                             </div>
                         </a>
-                        <a class="dropdown-item text-center small text-gray-500" href="#">Tampilkan Semua</a>
+                        <?php
+                                }
+                                ?>
+                        <a class="dropdown-item text-center small text-gray-500"
+                            href="<?php echo base_url('dokter/pasien');?>">Tampilkan Semua</a>
                     </div>
                 </li>
                 <?php }?>

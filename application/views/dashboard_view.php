@@ -17,8 +17,8 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="h5 text-lg font-weight-bold text-primary text-uppercase mb-1">
-                                1</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">Pasien</div>
+                                <?= $pasienbaru->jumlahpasienbaru?></div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">Pasien Baru</div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-user fa-2x text-gray-300"></i>
@@ -35,7 +35,7 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-lg font-weight-bold text-success text-uppercase mb-1">
-                                1</div>
+                                <?= $totaltransaksi->jumlahtransaksi?></div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">Transaksi</div>
                         </div>
                         <div class="col-auto">
@@ -53,11 +53,11 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-lg font-weight-bold text-success text-uppercase mb-1">
-                                1</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">Obat</div>
+                                <?= $totalpasien->jumlahpasien?></div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">Pasien</div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-plus-square fa-2x text-gray-300"></i>
+                            <i class="fas fa-users fa-2x text-gray-300"></i>
                         </div>
                     </div>
                 </div>

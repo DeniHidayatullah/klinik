@@ -28,6 +28,21 @@ class M_Transaksi extends CI_Model
     $this->db->order_by($this->id_transaksi, $this->order_pasien);
     return $this->db->get()->result();
    }
+   function get_strukpasien($id)
+   {
+    $data = $this->db->select('*');
+    $this->db->from('tbl_transaksi');
+    $this->db->join('tbl_pasien', 'tbl_pasien.id_pasien = tbl_transaksi.id_pasien', 'left');
+    $this->db->where('tbl_transaksi.id_pasien', $id);
+    return $this->db->get()->row();
+   }
+
+   function get_totaltransaksi()
+   {
+    $data = $this->db->select('count(id_transaksi) as jumlahtransaksi');
+    $this->db->from('tbl_transaksi');
+    return $this->db->get()->row();
+   }
 
    function get_pasien()
    {

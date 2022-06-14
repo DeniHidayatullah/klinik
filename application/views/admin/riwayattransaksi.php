@@ -20,7 +20,7 @@
                             <th>No.Telpon</th>
                             <th>Total</th>
                             <th>Bayar</th>
-                            <th>Aksi</th>
+                            <th>Cetak Struk</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -43,9 +43,7 @@
                             <td><?php echo $data->no_telp ?></td>
                             <td><?php echo $data->total ?></td>
                             <td><?php echo $data->bayar ?></td>
-                            <td><a target="_blank"
-                                    href="<?php echo base_url() ?>dokter/Transaksi/cetaksruk/<?php echo  $data->id_pasien; ?>"
-                                    class="btn btn-sm btn-success">Cetak Struk</a></td>
+                            <td><?php echo'steuk'?></td>
                         </tr>
                         <?php
                         }

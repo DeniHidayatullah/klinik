@@ -1,12 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Dashboard extends CI_Controller {
+class LaporanTransaksi extends CI_Controller {
 	function __construct(){
 	 parent::__construct();
 	 	//validasi jika user belum login
      $this->data['CI'] =& get_instance();
-     $this->load->model('M_User');
+     $this->load->model('M_User', 'm_user');
      $this->load->model('M_Pasien', 'm_pasien');
      $this->load->model('M_Transaksi', 'm_transaksi');
 	 	 if($this->session->userdata('masuk_sistem_rekam') != TRUE){
@@ -17,19 +17,14 @@ class Dashboard extends CI_Controller {
 	 
 	public function index()
 	{	
-		$this->data['idbo'] = $this->session->userdata('ses_id');
+		$id = $this->session->userdata('ses_id');
 		$this->data['username'] = $this->session->userdata('username');
-		$this->data['pemberitahuan'] =  $this->m_pasien->get_pemberitahuan();
-		$this->data['jumlah_pemberitahuan'] =  $this->m_pasien->get_jumlahpemberitahuan();
-		$this->data['pasienbaru'] =  $this->m_pasien->get_pasienbaru();
-		$this->data['totaltransaksi'] =  $this->m_transaksi->get_totaltransaksi();
-		$this->data['totalpasien'] =  $this->m_pasien->get_totalpasien();
-		$this->data['title_web'] = 'Dashboard ';
+        $this->data['transaksi_pasien']   = $this->m_transaksi->get_transaksipasien();
+		$this->data['title_web'] = 'Riwayat Transaksi Pasien';
 		$this->load->view('template_admin/header_view',$this->data);
 		$this->load->view('template_admin/sidebar_view',$this->data);
 		$this->load->view('template_admin/topbar_view',$this->data);
-		$this->load->view('dashboard_view',$this->data);
+		$this->load->view('admin/riwayattransaksi',$this->data);
 		$this->load->view('template_admin/footer_view',$this->data);
 	}
-
 }

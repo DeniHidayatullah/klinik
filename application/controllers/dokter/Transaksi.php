@@ -20,6 +20,8 @@ class Transaksi extends CI_Controller {
 		$this->data['idbo'] = $this->session->userdata('ses_id');
 		$this->data['username'] = $this->session->userdata('username');
         $this->data['pasien']   = $this->m_transaksi->get_pasien();
+		$this->data['pemberitahuan'] =  $this->m_pasien->get_pemberitahuan();
+		$this->data['jumlah_pemberitahuan'] =  $this->m_pasien->get_jumlahpemberitahuan();
 		$this->data['title_web'] = 'Input Transaksi';
 		$this->load->view('template_admin/header_view',$this->data);
 		$this->load->view('template_admin/sidebar_view',$this->data);
@@ -52,15 +54,19 @@ class Transaksi extends CI_Controller {
 	public function prosestransaksi()
 	{	
 		$id = $this->session->userdata('ses_id');
+		$id_pasien = $this->input->post('id_pasien');
 			$data = array(
 				'id_pasien'=> $this->input->post('id_pasien'),
 				'total'=> $this->input->post('total'), 
 				'bayar'=> $this->input->post('bayar'), 
-				'kembali'=> $this->input->post('kembali')
+				'kembali'=> $this->input->post('kembali'),
+				'tanggal_transaksi'=> date("Y/m/d")
 			);
 
 		$this->m_transaksi->insert_transaksi($data);
 
+		echo '<script>
+		window.open("'.base_url("dokter/Transaksi/cetaksruk/").$id_pasien.'");</script>';
 		echo '<script>alert("Daftar Berhasil");
 		window.location="'.base_url().'dokter/Transaksi/riwayattransaksi"</script>';
 	}
@@ -70,11 +76,21 @@ class Transaksi extends CI_Controller {
 		$id = $this->session->userdata('ses_id');
 		$this->data['username'] = $this->session->userdata('username');
         $this->data['transaksi_pasien']   = $this->m_transaksi->get_transaksipasien();
+		$this->data['pemberitahuan'] =  $this->m_pasien->get_pemberitahuan();
+		$this->data['jumlah_pemberitahuan'] =  $this->m_pasien->get_jumlahpemberitahuan();
 		$this->data['title_web'] = 'Riwayat Transaksi Pasien';
 		$this->load->view('template_admin/header_view',$this->data);
 		$this->load->view('template_admin/sidebar_view',$this->data);
 		$this->load->view('template_admin/topbar_view',$this->data);
 		$this->load->view('dokter/riwayattransaksi',$this->data);
 		$this->load->view('template_admin/footer_view',$this->data);
+	}
+
+	public function cetaksruk($id)
+	{	
+        $this->data['transaksi_pasien']   = $this->m_transaksi->get_strukpasien($id);
+		// var_dump($this->data['transaksi_pasien']);
+		// die;
+		$this->load->view('dokter/struk',$this->data);
 	}
 }
