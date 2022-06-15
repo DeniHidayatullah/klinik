@@ -36,6 +36,11 @@ class M_User extends CI_Model
        $this->db->where($this->id_user, $id);
        $this->db->delete($this->table_user);
    }
+   
+   public function update_aktivasi($data,$where) {
+    $result= $this->db->update('tbl_user',$data,$where);
+    return $result;
+}
 
    function update_password($id, $data)
    {
@@ -47,5 +52,22 @@ class M_User extends CI_Model
    {
        $this->db->insert($this->table, $data);
    }
+
+   public function cekkode()
+	{
+    $this->db->select('RIGHT(tbl_user.id_user,1) as id_user', FALSE);
+    $this->db->order_by('id_user','DESC');    
+    $this->db->limit(1);    
+    $query = $this->db->get('tbl_user');
+        if($query->num_rows() <> 0){      
+             $data = $query->row();
+             $kode = intval($data->id_user) + 1; 
+        }
+        else{      
+             $kode = 1;  
+        }
+    $batas = str_pad($kode, 1, "0", STR_PAD_LEFT);    
+    return $batas;  
+}
 }
 ?>

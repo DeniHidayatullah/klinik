@@ -50,7 +50,8 @@ class Pasien extends CI_Controller {
 				'no_telp'=> $this->input->post('no_telp'),
                 'syarat_daftar'=>$data1['upload_data']['file_name'], 
 				'id_user' => $id,
-				'status_pasien' => '0'
+				'status_pasien' => '0',
+				'tanggal_daftar' => date("Y/m/d")
 			);
 
 		$this->m_pasien->insert_pasien($data);

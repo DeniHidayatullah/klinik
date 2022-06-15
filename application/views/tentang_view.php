@@ -33,7 +33,12 @@
                     <p>Sistem ini dapat membantu Klinik Ketapanrame, khususnya bagi Admin
                         yang bertugas dalam pendataan data pasien mencatat data pasien serta sebagai sarana pendukung
                         serta menunjang untuk proses menyimpan dan
-                        memantau seluruh data pasien.</p>
+                        memantau seluruh data pasien.<br>
+                        Klinik Ketapanrame ber alamat Jl. Ki ageng tambak boyo no. 59A ponkesdes ketapan rame Ds.
+                        Ketapan Rame kec. Trawas kab.
+                        Mojokerto rt. 16 rw. 07
+                        dan mempunyai dokter yang bernama ibu Latifah. A.MD keb
+                    </p>
                 </div>
             </div>
 
