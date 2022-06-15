@@ -80,7 +80,33 @@ var myLineChart = new Chart(ctx, {
     data: {
         // labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
         labels: [
-            <?php foreach ($bulanpasien as $data) { echo '"' . $data->bulan . '",';}?>
+            <?php foreach ($bulanpasien as $data) {
+                 if ($data->bulan == "1") {
+                    $bl1 = "Januari";
+                }elseif ($data->bulan == "2") {
+                    $bl1 = "Februari";
+                }elseif ($data->bulan == "3") {
+                    $bl1 = "Maret";
+                }elseif ($data->bulan == "4") {
+                    $bl1 = "April";
+                }elseif ($data->bulan == "5") {
+                    $bl1 = "Mei";
+                }elseif ($data->bulan == "6") {
+                    $bl1 = "Juni";
+                }elseif ($data->bulan == "7") {
+                    $bl1 = "Juli";
+                }elseif ($data->bulan == "8") {
+                    $bl1 = "Agustus";
+                }elseif ($data->bulan == "9") {
+                    $bl1 = "September";
+                }elseif ($data->bulan == "10") {
+                    $bl1 = "Oktober";
+                }elseif ($data->bulan == "11") {
+                    $bl1 = "November";
+                }elseif ($data->bulan == "12") {
+                    $bl1 = "Desember";
+                }
+                echo '"' . $bl1 . '",';}?>
         ],
         datasets: [{
             label: "Earnings",
@@ -180,7 +206,34 @@ var ctx = document.getElementById("myBarChart");
 var myBarChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: [<?php foreach ($bulantransaksi as $data) { echo '"' . $data->bulan . '",';}?>],
+        labels: [<?php foreach ($bulantransaksi as $data) { 
+             if ($data->bulan == "1") {
+                $bl1 = "Januari";
+            }elseif ($data->bulan == "2") {
+                $bl1 = "Februari";
+            }elseif ($data->bulan == "3") {
+                $bl1 = "Maret";
+            }elseif ($data->bulan == "4") {
+                $bl1 = "April";
+            }elseif ($data->bulan == "5") {
+                $bl1 = "Mei";
+            }elseif ($data->bulan == "6") {
+                $bl1 = "Juni";
+            }elseif ($data->bulan == "7") {
+                $bl1 = "Juli";
+            }elseif ($data->bulan == "8") {
+                $bl1 = "Agustus";
+            }elseif ($data->bulan == "9") {
+                $bl1 = "September";
+            }elseif ($data->bulan == "10") {
+                $bl1 = "Oktober";
+            }elseif ($data->bulan == "11") {
+                $bl1 = "November";
+            }elseif ($data->bulan == "12") {
+                $bl1 = "Desember";
+            }
+            
+            echo '"' . $bl1 . '",';}?>],
         datasets: [{
             label: "Revenue",
             backgroundColor: "#4e73df",

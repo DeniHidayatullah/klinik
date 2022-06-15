@@ -3,9 +3,9 @@
 <!-- Topbar -->
 <nav class="navbar navbar-expand navbar-dark bg-primary topbar mb-4 static-top shadow">
     <!-- Sidebar Toggle (Topbar) -->
-    <button id="sidebarToggleTop" class="btn btn-link bg-dark d-md-none rounded-circle mr-3">
+    <!-- <button id="sidebarToggleTop" class="btn btn-link bg-dark d-md-none rounded-circle mr-3">
         <i class="fa fa-bars"></i>
-    </button>
+    </button> -->
 
     <!-- Topbar Search -->
 
@@ -36,19 +36,6 @@
                     <a class="nav-link" href="<?php echo base_url('login');?>">Login</a>
                 </li>
                 <?php } ?>
-                <!-- <?php if($this->session->userdata('level') == 'pasien'){?>
-                <li class="nav-item <?php if($this->uri->uri_string() == 'pasien'){ echo 'active';}?>">
-                    <a class="nav-link" href="<?php echo base_url('pasien');?>">Daftar Pasien</a>
-                </li>
-                <li
-                    class="nav-item <?php if($this->uri->uri_string() == 'pasien/riwayatpemeriksaan'){ echo 'active';}?>">
-                    <a class="nav-link" href="<?php echo base_url('pasien/riwayatpemeriksaan');?>">Riwayat
-                        Pemeriksaan</a>
-                </li>
-                <li class="nav-item <?php if($this->uri->uri_string() == 'login/logout'){ echo 'active';}?>">
-                    <a class="nav-link" href="<?php echo base_url('login/logout');?>">Logout</a>
-                </li>
-                <?php } ?> -->
             </ul>
         </div>
     </ul>
