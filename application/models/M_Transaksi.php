@@ -91,6 +91,35 @@ class M_Transaksi extends CI_Model
        $this->db->where($this->id_transaksi, $id);
        $this->db->delete($this->table_transaksi);
    }
-   
+
+   function gettahun()
+   {
+       $query = $this->db->query("SELECT YEAR(tanggal_transaksi) AS tahun FROM tbl_transaksi GROUP BY YEAR(tanggal_transaksi) ORDER BY YEAR(tanggal_transaksi) ASC");
+       return $query->result();
+   }
+
+   function filterbybulan($tahun1, $bulanawal, $bulanakhir)
+   {
+       $query = $this->db->query("SELECT a.* , b.*  from tbl_transaksi  a join tbl_pasien b on a.id_pasien=b.id_pasien  where YEAR(a.tanggal_transaksi) = '$tahun1' and MONTH(a.tanggal_transaksi) BETWEEN '$bulanawal' and '$bulanakhir' ORDER BY a.tanggal_transaksi ASC");
+       return $query->result();
+   }
+
+   function filterbytahun($tahun2)
+   {
+       $query = $this->db->query("SELECT a.* , b.*  from tbl_transaksi  a join tbl_pasien b on a.id_pasien=b.id_pasien where YEAR(a.tanggal_transaksi) = '$tahun2' ORDER BY a.tanggal_transaksi ASC");
+       return $query->result();
+   }
+
+   function sum($tahun2)
+   {
+       $query = $this->db->query("SELECT SUM(a.total) as grand from tbl_transaksi a join tbl_pasien b on a.id_pasien=b.id_pasien where YEAR(a.tanggal_transaksi) = '$tahun2' ORDER BY a.tanggal_transaksi ASC");
+       return $query->result();
+   }
+
+   function sumbulan($tahun1, $bulanawal, $bulanakhir)
+   {
+       $query = $this->db->query("SELECT SUM(a.total) as grand from tbl_transaksi a join tbl_pasien b on a.id_pasien=b.id_pasien where YEAR(a.tanggal_transaksi) = '$tahun1' and MONTH(a.tanggal_transaksi) BETWEEN '$bulanawal' and '$bulanakhir' ORDER BY a.tanggal_transaksi ASC");
+       return $query->result();
+   }
 }
 ?>
