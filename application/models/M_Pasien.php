@@ -87,6 +87,16 @@ class M_Pasien extends CI_Model
     return $this->db->get()->result();
    }
 
+   function get_by_pasien($id)
+    {
+        $data = $this->db->select('*')
+            ->from($this->table_pasien)
+            ->where($this->id_pasien, $id)
+            ->get()
+            ->row();
+        return $data;
+    }
+
    function getdi_transaksipasien($id)
    {
     $data = $this->db->select('*');

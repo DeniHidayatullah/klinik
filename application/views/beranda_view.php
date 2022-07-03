@@ -20,10 +20,9 @@
                     src="<?php echo base_url('assets/img/klinik2.jpg');?>" alt="..." />
             </div>
             <p>
-                Klinik Ketapanrame adalah suatu fasilitas kesehatan publik kecil yang didirikan untuk memberikan
-                perawatan kepada
-                pasien luar. Biasanya klinik hanya mengobati penyakit-penyakit ringan seperti demam dan sebagainya,
-                sedangkan kasus-kasus yang lebih parah diajukan ke rumah sakit.
+                klinik MK merupakan suatu fasilitas kesehatan publik kecil yang didirikan untuk memberikan perawatan
+                kepada masyarakat sekitar. biasanya klinik tersebut hanya mengobati penyakit-penyakit ringan seperti
+                demam dan sebagainya, sedangkan kasus-kasus yang lebih parah akan di rujuk ke puskesmas terdekat.
                 <br />
                 <br />
         </div>

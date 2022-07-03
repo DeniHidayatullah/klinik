@@ -8,6 +8,7 @@ class Pasien extends CI_Controller {
      $this->data['CI'] =& get_instance();
      $this->load->model('M_User', 'm_user');
      $this->load->model('M_Pasien', 'm_pasien');
+     $this->load->model('M_antrian', 'm_antrian');
 	 	 if($this->session->userdata('masuk_sistem_rekam') != TRUE){
 				 $url=base_url('login');
 				 redirect($url);
@@ -16,8 +17,10 @@ class Pasien extends CI_Controller {
 	 
 	public function index()
 	{	
+		
 		$this->data['idbo'] = $this->session->userdata('ses_id');
 		$this->data['username'] = $this->session->userdata('username');
+		$this->data['antrian'] = $this->getAntrianawal();;
 		$this->data['title_web'] = 'Daftar Pasien';
 		$this->load->view('template_admin/header_view',$this->data);
 		$this->load->view('template_admin/sidebar_view',$this->data);
@@ -29,6 +32,9 @@ class Pasien extends CI_Controller {
 	public function prosesdaftar()
 	{	
 		$id = $this->session->userdata('ses_id');
+
+		
+		$antrian = $this->getAntrian();
 		// setting konfigurasi upload
 		$nmfile = "user_".time();
 		$config['upload_path'] = './assets/SyaratPasien/';
@@ -51,7 +57,8 @@ class Pasien extends CI_Controller {
                 'syarat_daftar'=>$data1['upload_data']['file_name'], 
 				'id_user' => $id,
 				'status_pasien' => '0',
-				'tanggal_daftar' => date("Y/m/d")
+				'tanggal_daftar' => date("Y/m/d"),
+				'id_antrian' => $antrian,
 			);
 
 		$this->m_pasien->insert_pasien($data);
@@ -71,5 +78,83 @@ class Pasien extends CI_Controller {
 		$this->load->view('template_admin/topbar_view',$this->data);
 		$this->load->view('pasien/riwayatpemeriksaan_view',$this->data);
 		$this->load->view('template_admin/footer_view',$this->data);
+	}
+
+	public function getAntrian(){
+		$antrian = '';
+		
+		if($data = $this->m_antrian->countAntrian(true)){
+
+			$no_urut = (int) substr($data[0]['antrian'],1,3);
+			
+			if(strlen($no_urut) == 1){
+				$antrian = "A00".((int) $no_urut + 1);
+			}else if(strlen($no_urut) == 2){
+				$antrian = "A0".((int) $no_urut + 1);
+			}else{
+				$antrian = "A".((int) $no_urut + 1);
+			}
+
+			$tanggal = date('Y-m-d');
+
+			$data = array(
+				'tanggal' => $tanggal,
+				'antrian' => $antrian
+			);
+
+			// echo "<pre>";
+			// print_r($data);
+			// exit();
+			$antrian = $this->m_antrian->insertAntrian($data);
+
+			
+		}else{
+			$antrian = 'A001';
+			$tanggal = date('Y-m-d');
+
+			$data = array(
+				'tanggal' => $tanggal,
+				'antrian' => $antrian
+			);
+
+			$antrian = $this->m_antrian->insertAntrian($data);
+		}
+		return $antrian;
+	}
+
+	public function getAntrianawal(){
+		$antrian = '';
+		
+		if($data = $this->m_antrian->countAntrian(true)){
+
+			$no_urut = (int) substr($data[0]['antrian'],1,3);
+			
+			if(strlen($no_urut) == 1){
+				$antrian = "A00".((int) $no_urut + 1);
+			}else if(strlen($no_urut) == 2){
+				$antrian = "A0".((int) $no_urut + 1);
+			}else{
+				$antrian = "A".((int) $no_urut + 1);
+			}
+
+			$tanggal = date('Y-m-d');
+
+			$data = array(
+				'tanggal' => $tanggal,
+				'antrian' => $antrian
+			);
+
+
+			
+		}else{
+			$antrian = 'A001';
+			$tanggal = date('Y-m-d');
+
+			$data = array(
+				'tanggal' => $tanggal,
+				'antrian' => $antrian
+			);
+		}
+		return $antrian;
 	}
 }

@@ -100,7 +100,7 @@
     }
 
     #invoice-POS .item {
-        width: 24mm;
+        width: 20mm;
     }
 
     #invoice-POS .itemtext {
@@ -155,6 +155,9 @@
                         <td class="Hours">
                             <h2>Keluhan</h2>
                         </td>
+                        <td class="item">
+                            <h2>Obat</h2>
+                        </td>
                         <td class="Rate">
                             <h2>Total</h2>
                         </td>
@@ -168,16 +171,20 @@
                             <p class="itemtext"><?=  $transaksi_pasien->keluhan?></p>
                         </td>
                         <td class="tableitem">
+                            <p class="itemtext"><?=  $transaksi_pasien->nama_obat?></p>
+                        </td>
+                        <td class="tableitem">
                             <p class="itemtext"><?= 'Rp. '. $transaksi_pasien->total?></p>
                         </td>
                     </tr>
 
                     <tr class="tabletitle">
                         <td></td>
+                        <td></td>
                         <td class="Rate">
                             <h2>Total</h2>
                         </td>
-                        <td class="payment">
+                        <td class="item">
                             <h2><?= 'Rp. '. $transaksi_pasien->total?></h2>
                         </td>
                     </tr>

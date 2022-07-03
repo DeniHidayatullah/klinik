@@ -34,6 +34,7 @@ class M_Transaksi extends CI_Model
     $data = $this->db->select('*');
     $this->db->from('tbl_transaksi');
     $this->db->join('tbl_pasien', 'tbl_pasien.id_pasien = tbl_transaksi.id_pasien', 'left');
+    $this->db->join('tbl_obat', 'tbl_obat.id = tbl_transaksi.id_obat', 'left');
     $this->db->where('tbl_transaksi.id_pasien', $id);
     return $this->db->get()->row();
    }
@@ -61,6 +62,13 @@ class M_Transaksi extends CI_Model
     $this->db->where('status_pasien', 2);
        $this->db->order_by($this->id_pasien, $this->order_pasien);
        return $this->db->get($this->table_pasien)->result();
+   }
+
+   function get_obat()
+   {
+    $data = $this->db->select('*');
+    $this->db->from('tbl_obat');
+    return $this->db->get()->result();
    }
    
    function get_by_id_pasien($id)
@@ -100,13 +108,19 @@ class M_Transaksi extends CI_Model
 
    function filterbybulan($tahun1, $bulanawal, $bulanakhir)
    {
-       $query = $this->db->query("SELECT a.* , b.*  from tbl_transaksi  a join tbl_pasien b on a.id_pasien=b.id_pasien  where YEAR(a.tanggal_transaksi) = '$tahun1' and MONTH(a.tanggal_transaksi) BETWEEN '$bulanawal' and '$bulanakhir' ORDER BY a.tanggal_transaksi ASC");
+       $query = $this->db->query("SELECT a.* , b.* , c.* from tbl_transaksi  a 
+       join tbl_pasien b on a.id_pasien=b.id_pasien  
+       join tbl_obat c on c.id=a.id_obat  
+       where YEAR(a.tanggal_transaksi) = '$tahun1' and MONTH(a.tanggal_transaksi) BETWEEN '$bulanawal' and '$bulanakhir' ORDER BY a.tanggal_transaksi ASC");
        return $query->result();
    }
 
    function filterbytahun($tahun2)
    {
-       $query = $this->db->query("SELECT a.* , b.*  from tbl_transaksi  a join tbl_pasien b on a.id_pasien=b.id_pasien where YEAR(a.tanggal_transaksi) = '$tahun2' ORDER BY a.tanggal_transaksi ASC");
+       $query = $this->db->query("SELECT a.* , b.* , c.* from tbl_transaksi  a 
+       join tbl_pasien b on a.id_pasien=b.id_pasien 
+       join tbl_obat c on c.id=a.id_obat  
+       where YEAR(a.tanggal_transaksi) = '$tahun2' ORDER BY a.tanggal_transaksi ASC");
        return $query->result();
    }
 

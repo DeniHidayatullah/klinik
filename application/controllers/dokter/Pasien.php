@@ -8,6 +8,7 @@ class Pasien extends CI_Controller {
      $this->data['CI'] =& get_instance();
      $this->load->model('M_User', 'm_user');
      $this->load->model('M_Pasien', 'm_pasien');
+     $this->load->model('M_antrian', 'm_antrian');
 	 	 if($this->session->userdata('masuk_sistem_rekam') != TRUE){
 				 $url=base_url('login');
 				 redirect($url);
@@ -47,11 +48,19 @@ class Pasien extends CI_Controller {
 
 	public function prosesselesai($id)
 	{		
+			
+		$pasien =  $this->m_pasien->get_by_pasien($id);
+		$id_antrian = $pasien->id_antrian;
 			$data = array(
 				'status_pasien' => '2'
 			);
 
+			$data2 = array(
+				'status' => '1'
+			);
 			$this->m_pasien->update_pasien($id,$data);
+			
+			$this->m_antrian->update_antrian($id_antrian,$data2);
 
 			$this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">
 			<h6> <i class="icon fas fa-check"></i>Pasien Telah Selesai Diperiksa</h6>

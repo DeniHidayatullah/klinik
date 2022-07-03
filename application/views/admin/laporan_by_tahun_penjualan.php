@@ -62,6 +62,7 @@
                 <th>Tanggal Transaksi</th>
                 <th>Nama Pasien</th>
                 <th>Keluhan</th>
+                <th>Obat</th>
                 <th>No Telpon</th>
                 <th>Sub Total</th>
             </tr>
@@ -75,6 +76,7 @@
                 <td class="text-center"><?= $row->tanggal_transaksi; ?></td>
                 <td class="text-center"><?= $row->nama_pasien; ?></td>
                 <td class="text-center"><?= $row->keluhan; ?></td>
+                <td class="text-center"><?= $row->nama_obat; ?></td>
                 <td class="text-center"><?= $row->no_telp; ?></td>
                 <td class="text-center"><?= $row->total; ?></td>
             </tr>
@@ -83,7 +85,7 @@
             foreach ($sum as $r) {
             ?>
             <tr>
-                <td colspan="5" align="right"><strong>Jumlah Total</strong></td>
+                <td colspan="6" align="right"><strong>Jumlah Total</strong></td>
                 <td colspan="1" align="right"><strong><?= $r->grand;?></strong></td>
             </tr>
             <?php }; ?>

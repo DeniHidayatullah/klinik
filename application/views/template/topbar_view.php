@@ -11,9 +11,11 @@
 
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo base_url('home');?>">
         <div class="sidebar-brand-icon text-white rotate-n-15">
-            <i class="fas fa-laugh-wink"></i>
+            <img src="<?php echo base_url('assets/img/logo-.png');?>" />
         </div>
-        <div class="sidebar-brand-text text-white mx-3">Klinik Ketapanrame</div>
+        <!-- <div class="sidebar-brand-text text-white mx-3"><img src="<?php echo base_url('./assets/img/logo.png');?>"></div> -->
+        <div class="sidebar-brand-text text-white mx-3">Klinik Mogiwaras Ketapanrame
+        </div>
     </a>
 
 

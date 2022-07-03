@@ -12,6 +12,10 @@
         <div class="card-body">
             <?php echo form_open_multipart('Pasien/prosesdaftar'); ?>
             <div class="form-group">
+                <label>Antrian</label>
+                <input type="text" class="form-control" name="antrian" value="<?= $antrian?>">
+            </div>
+            <div class="form-group">
                 <label>Nama Pasien</label>
                 <input type="text" class="form-control" name="nama_pasien" placeholder="Masukan Nama Pasien..."
                     required>

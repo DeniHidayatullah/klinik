@@ -57,6 +57,20 @@
 
 
             <div class="form-group">
+                <label>Obat</label>
+                <select name="id_obat" id="id_obat" class="form-control">
+                    <option disabled="disabled" selected="selected">Pilih Obat</option>
+                    <?php
+                        foreach ($obat as $row){ ?>
+                    <option value="<?php echo $row->id; ?>">
+                        <?php echo $row->kode_obat. '-' .$row->nama_obat. '-' .$row->untuk_sakit; ?></option>
+                    <?php
+                        }
+                        ?>
+                </select>
+            </div>
+            <br>
+            <div class="form-group">
                 <label>Total</label>
                 <input type="number" class="form-control" name="total" id="total" autocomplete="off">
             </div>

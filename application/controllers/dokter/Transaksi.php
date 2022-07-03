@@ -20,6 +20,7 @@ class Transaksi extends CI_Controller {
 		$this->data['idbo'] = $this->session->userdata('ses_id');
 		$this->data['username'] = $this->session->userdata('username');
         $this->data['pasien']   = $this->m_transaksi->get_pasien();
+        $this->data['obat']   = $this->m_transaksi->get_obat();
 		$this->data['pemberitahuan'] =  $this->m_pasien->get_pemberitahuan();
 		$this->data['jumlah_pemberitahuan'] =  $this->m_pasien->get_jumlahpemberitahuan();
 		$this->data['title_web'] = 'Input Transaksi';
@@ -57,6 +58,7 @@ class Transaksi extends CI_Controller {
 		$id_pasien = $this->input->post('id_pasien');
 			$data = array(
 				'id_pasien'=> $this->input->post('id_pasien'),
+				'id_obat'=> $this->input->post('id_obat'),
 				'total'=> $this->input->post('total'), 
 				'bayar'=> $this->input->post('bayar'), 
 				'kembali'=> $this->input->post('kembali'),
