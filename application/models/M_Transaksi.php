@@ -25,6 +25,7 @@ class M_Transaksi extends CI_Model
     $data = $this->db->select('*');
     $this->db->from('tbl_transaksi');
     $this->db->join('tbl_pasien', 'tbl_pasien.id_pasien = tbl_transaksi.id_pasien', 'left');
+    $this->db->join('tbl_antrian', 'tbl_pasien.id_antrian = tbl_antrian.id_antrian', 'left');
     $this->db->order_by($this->id_transaksi, $this->order_pasien);
     return $this->db->get()->result();
    }

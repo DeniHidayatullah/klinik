@@ -17,6 +17,7 @@
                     <thead>
                         <tr>
                             <th>No.</th>
+                            <th>Antrian</th>
                             <th>Nama Pasien</th>
                             <th>TTL</th>
                             <th>Jenis Kelamin</th>
@@ -34,6 +35,7 @@
                         ?>
                         <tr>
                             <td><?php echo ++$start ?></td>
+                            <td><?php echo $data->antrian ?></td>
                             <td><?php echo $data->nama_pasien ?></td>
                             <td><?php echo $data->tempat.', '. date('d-m-Y', strtotime($data->tanggal_lahir)) ?>
                             </td>

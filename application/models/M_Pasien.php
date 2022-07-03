@@ -21,12 +21,14 @@ class M_Pasien extends CI_Model
    {
     $where = "status_pasien=0 OR status_pasien=1";
     $this->db->where($where);
-       $this->db->order_by($this->id_pasien, $this->order_pasien);
+    $this->db->join('tbl_antrian', 'tbl_pasien.id_antrian = tbl_antrian.id_antrian', 'left');
+    $this->db->order_by($this->id_pasien, $this->order_pasien);
        return $this->db->get($this->table_pasien)->result();
    }
    function get_riwayat_pasien()
    {
     $this->db->where('status_pasien', 2);
+    $this->db->join('tbl_antrian', 'tbl_pasien.id_antrian = tbl_antrian.id_antrian', 'left');
        $this->db->order_by($this->id_pasien, $this->order_pasien);
        return $this->db->get($this->table_pasien)->result();
    }
@@ -83,7 +85,9 @@ class M_Pasien extends CI_Model
     $data = $this->db->select('*');
     $this->db->from('tbl_pasien');
     $this->db->join('tbl_user', 'tbl_pasien.id_user = tbl_user.id_user', 'left');
+    $this->db->join('tbl_antrian', 'tbl_pasien.id_antrian = tbl_antrian.id_antrian', 'left');
     $this->db->where('tbl_user.id_user', $id);
+    $this->db->order_by('tbl_antrian.id_antrian', $this->order_pasien);
     return $this->db->get()->result();
    }
 
@@ -103,7 +107,9 @@ class M_Pasien extends CI_Model
     $this->db->from('tbl_transaksi');
     $this->db->join('tbl_pasien', 'tbl_pasien.id_pasien = tbl_transaksi.id_pasien', 'left');
     $this->db->join('tbl_user', 'tbl_pasien.id_user = tbl_user.id_user', 'left');
+    $this->db->join('tbl_antrian', 'tbl_pasien.id_antrian = tbl_antrian.id_antrian', 'left');
     $this->db->where('tbl_user.id_user', $id);
+    $this->db->order_by('tbl_antrian.id_antrian', $this->order_pasien);
     return $this->db->get()->result();
    }
    
