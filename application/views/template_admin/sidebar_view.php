@@ -23,11 +23,11 @@
 
             <?php if($this->session->userdata('level') == 'pasien'){?>
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item <?php if($this->uri->uri_string() == 'dashboard'){ echo 'active';}?>">
+            <!-- <li class="nav-item <?php if($this->uri->uri_string() == 'dashboard'){ echo 'active';}?>">
                 <a class="nav-link" href="<?php echo base_url('dashboard');?>">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
-            </li>
+            </li> -->
 
             <!-- Nav Item - antrian -->
             <li class="nav-item <?php if($this->uri->uri_string() == 'antrian'){ echo 'active';}?>">
@@ -37,14 +37,20 @@
             </li>
 
             <!-- Nav Item - pasien -->
-            <li class="nav-item <?php if($this->uri->uri_string() == 'pasien'){ echo 'active';}?>">
+            <li class="nav-item <?php if($this->uri->uri_string() == 'profil'){ echo 'active';}?>">
+                <a class="nav-link" href="<?php echo base_url('profil');?>">
+                    <i class="fas fa-fw fa-user"></i>
+                    <span>Profil</span></a>
+            </li>
+
+            <!-- <li class="nav-item <?php if($this->uri->uri_string() == 'pasien'){ echo 'active';}?>">
                 <a class="nav-link" href="<?php echo base_url('pasien');?>">
                     <i class="fas fa-fw fa-user"></i>
                     <span>Daftar Pasien</span></a>
-            </li>
+            </li> -->
 
             <!-- Nav Item - riwayat pasien -->
-            <li class="nav-item <?php if($this->uri->uri_string() == 'pasien/riwayatpemeriksaan'){ echo 'active';}?>">
+            <!-- <li class="nav-item <?php if($this->uri->uri_string() == 'pasien/riwayatpemeriksaan'){ echo 'active';}?>">
                 <a class="nav-link" href="<?php echo base_url('pasien/riwayatpemeriksaan');?>">
                     <i class="fas fa-fw fa-calendar"></i>
                     <span>Riwayat Pemeriksaan</span></a>

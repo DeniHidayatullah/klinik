@@ -42,7 +42,11 @@ class Login extends CI_Controller {
             // elseif($this->session->userdata('level') == 'pasien'){
             //     echo '<script>window.location="'.base_url().'home";</script>';
             // }
-            echo '<script>window.location="'.base_url().'dashboard";</script>';
+            if($hasil_login['level'] == 'pasien'){
+            echo '<script>window.location="'.base_url().'antrian";</script>';
+            }else{
+                echo '<script>window.location="'.base_url().'dashboard";</script>';
+            }
             
             }else{
     

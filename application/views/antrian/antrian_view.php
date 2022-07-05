@@ -154,7 +154,7 @@
             </div>
         </div>
         <div class="col-md-12 text-center" style="margin-top: 40px;"><a href="<?php echo base_url('Pasien'); ?>"
-                class="btn btn-danger btn-raised btn-lg">Daftar</a></div>
+                class="btn btn-danger btn-raised btn-lg">Ambil Antrian</a></div>
     </div>
     <!-- /.Content Row -->
 

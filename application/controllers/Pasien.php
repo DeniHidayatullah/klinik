@@ -64,7 +64,7 @@ class Pasien extends CI_Controller {
 		$this->m_pasien->insert_pasien($data);
 
 		echo '<script>alert("Daftar Berhasil");
-		window.location="'.base_url().'Pasien/riwayatpemeriksaan"</script>';
+		window.location="'.base_url().'Antrian"</script>';
 	}
 
 	public function riwayatpemeriksaan()
